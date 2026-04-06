@@ -1,6 +1,8 @@
 
 object galvan{
   var sueldo = 15000
+  var deuda = 0
+  var dinero = 0
 
     method sueldo(_sueldo){
         sueldo = _sueldo  //sueldo nuevo
@@ -10,8 +12,30 @@ object galvan{
         return sueldo
     }
 
+    method deuda(){
+        return deuda
+    }
+    method dinero(){
+        return dinero
+    }
+
     method cobrar_sueldo(){
-        return sueldo
+        dinero = dinero + sueldo // cobra
+         if (deuda > dinero) {
+            deuda = deuda - dinero //paga parte de la deuda
+            dinero = 0 
+        } else {
+            dinero = dinero - deuda //paga la deuda completa
+            deuda = 0 //queda sin deuda
+        }
+    }
+    method gastar(monto) {
+        if (monto > dinero) {
+            deuda = deuda + (monto - dinero) //actualiza la deuda del vendedor
+            dinero = 0 //queda sin dinero
+      } else {
+            dinero = dinero - monto //paga y sobra
+      }
     }
 
 }

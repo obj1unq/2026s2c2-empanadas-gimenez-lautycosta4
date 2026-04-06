@@ -10,7 +10,7 @@ test "Qué hacen los empleados con lo que cobran" {
   
   baigorria.vender(100)
   gimenez.pagarSueldo(baigorria)
-  assert.equals(13500, baigorria.totalCobrado())
+  assert.equals(13500, baigorria.total_cobrado())
   
  	
 }

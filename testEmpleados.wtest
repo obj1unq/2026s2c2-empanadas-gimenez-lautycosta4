@@ -1,0 +1,30 @@
+import empleados.*
+
+describe "pagar sueldos"{
+    test "pago a galvan con fondos suficientes"{
+            assert.equals(300000,gimenez.fondos())
+            assert.equals(0, galvan.dinero())
+            gimenez.pagarSueldo(galvan)
+            assert.equals(285000, gimenez.fondos())
+            assert.equals(15000, galvan.dinero())
+    }
+    test "error al intentar pagar a galvan"{
+        gimenez.setFondos(0)
+        assert.equals(0, gimenez.fondos())
+        assert.equals(0, galvan.dinero())
+        assert.throwsException({gimenez.pagarSueldo(galvan)})
+        assert.equals(0, gimenez.fondos())
+        assert.equals(0, galvan.dinero())
+    }
+    test "pago a baigorria con fondos suficientes"{
+
+    }
+    test "intento de pago a galvan con fondos insuficientes"{
+
+    }
+    test "intento de pago a baigorria con fondos insuficientes"{
+
+    }
+
+}
+

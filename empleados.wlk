@@ -73,9 +73,31 @@ object gimenez {
     method fondo(){
         return fondo
     }
-
+/*
     method pagarSueldo(vendedor){
         fondo=fondo-vendedor.sueldo() //actualiza el fondo del negocio de acuerdo al sueldo del vendedor
         vendedor.cobrar_sueldo() //paga el sueldo al vendedor
     }
+*/
+/*
+method pagarSueldo(persona){
+    if(puedePagarA(persona)){
+        pagarA(persona)
+        } else
+        self.error("fondos insuficientes" + persona.sueldo())
+}
+version menos prolija 
+*/
+
+//buena practica
+method pagarSueldo(persona){
+    validarFondos(persona)
+    pagarA(persona)
+}
+method validarFondos(persona){
+    if(not puedePagarA(persona)){
+        self.error("fondos insuf" + persona.sueldo())
+    }
+}
+
 }
